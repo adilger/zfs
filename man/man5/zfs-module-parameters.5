@@ -460,9 +460,9 @@ Default value: \fB1,048,576\fR.
 \fBzfetch_max_distance\fR (uint)
 .ad
 .RS 12n
-Max bytes to prefetch per stream (default 8MB).
+Max bytes to prefetch per read stream.
 .sp
-Default value: \fB8,388,608\fR.
+Default value: \fB67,108,864\fR.
 .RE
 
 .sp
@@ -2140,7 +2140,7 @@ Default value: \fB5\fR.
 .RS 12n
 Max vdev I/O aggregation size
 .sp
-Default value: \fB131,072\fR.
+Default value: \fBpool recordsize (default 131,072)\fR.
 .RE
 
 .sp

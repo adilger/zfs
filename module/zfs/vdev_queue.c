@@ -169,9 +169,10 @@ int zfs_vdev_async_write_active_max_dirty_percent = 60;
  * To reduce IOPs, we aggregate small adjacent I/Os into one large I/O.
  * For read I/Os, we also aggregate across small adjacency gaps; for writes
  * we include spans of optional I/Os to aid aggregation at the disk even when
- * they aren't able to help us aggregate at this level.
+ * they aren't able to help us aggregate at this level.  If not explicitly
+ * specified smaller, this is limited to spa_maxblocksize() at time of use.
  */
-int zfs_vdev_aggregation_limit = 1 << 20;
+int zfs_vdev_aggregation_limit = SPA_MAXBLOCKSIZE;
 int zfs_vdev_read_gap_limit = 32 << 10;
 int zfs_vdev_write_gap_limit = 4 << 10;
 
